@@ -1,0 +1,24 @@
+
+extends layout
+
+block content
+ .container
+  .row
+   .col-xs-8.col-xs-offset-2
+    .input-group
+     .input-group-btn.search-panel
+      form(method='get' name='searchForm' action='/product/search/')
+       div.form-group
+       
+
+        label filter by:   
+        select(id="filter" name='filter' required='true')
+         option(value='brand',   #{brand} ) brand
+         option(value='price',  #{price} ) price
+         option(value='category.id', #{category_id} ) category id 
+         option(value='category.name', #{category_name} ) category name
+        input#term.form-control(type='text', placeholder='What are you looking for?' name='term' required='true')
+       
+       br
+       button.btn.btn-primary(type='submit' onsubmit="") Submit
+
