@@ -23,7 +23,7 @@ exports.search_results = function(req, res) {
 
       products.aggregate([aggQuery, _group]).exec(function(err, aggregated_result){
       if (err){return next(err);}
-      res.json({"matching products": search_results, 'aggregation': aggregated_result})
+      res.json({"matching products": search_results, 'aggregated results': aggregated_result})
 
       });
     });
